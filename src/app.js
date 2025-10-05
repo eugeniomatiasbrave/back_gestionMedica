@@ -15,7 +15,10 @@ mongoose.connect(config.mongo.URL);
 
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors(
+    { origin: 'https://bravegestionmedica.vercel.app' },
+    { credentials: true }
+));
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, 'public'))); // Servir archivos estáticos desde la carpeta 'public'
@@ -26,5 +29,5 @@ app.use('/api/writings', writingsRouter);
 
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on port: ${PORT}`);
 });
