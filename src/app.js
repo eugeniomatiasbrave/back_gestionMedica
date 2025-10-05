@@ -9,9 +9,18 @@ import cors from 'cors';
 import config from './config/config.js';
 
 const app = express();
-const PORT = config.app.PORT;
+const PORT = process.env.PORT || config.app.PORT;
 
 const mongoURL = process.env.MONGO_URL || config.mongo.URL;
+
+// Debug: verificar que la URL existe
+console.log('MONGO_URL:', mongoURL ? 'Configurada correctamente' : 'NO CONFIGURADA');
+console.log('NODE_ENV:', process.env.NODE_ENV);
+
+if (!mongoURL) {
+    console.error('Error: MONGO_URL no está definida');
+    process.exit(1);
+}
 mongoose.connect(mongoURL);
 
 app.use(express.json());
