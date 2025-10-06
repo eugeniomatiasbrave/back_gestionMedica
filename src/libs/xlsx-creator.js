@@ -3,7 +3,7 @@ import fs from 'fs';
 
 export default async function createXlsx( { data, path } ) {
 
-	console.log('Data recibida - xlsx:', data);
+	//console.log('Data recibida - xlsx:', data);
 	try {
 
 		try {

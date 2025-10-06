@@ -15,7 +15,7 @@ export default async function createPdf({ html, path: filePath }) {
       fs.mkdirSync(dir, { recursive: true });
     }
 
-    console.log(`Creando PDF en: ${filePath}`);
+    //console.log(`Creando PDF en: ${filePath}`);
 
     const browser = await puppeteer.launch({
       headless: true,

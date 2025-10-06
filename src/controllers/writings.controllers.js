@@ -79,7 +79,7 @@ const updatedWriting = async (req, res) => {
   try {
     const writing = await writingsService.getWritingById(wid);
 
-    console.log("writing to update:", writing);
+    //console.log("writing to update:", writing);
 
     if (!writing) {
       return res
@@ -130,7 +130,7 @@ const deleteWriting = async (req, res) => {
 const createPDFId = async (req, res) => {
   const { html, id, title } = req.body;
 
-  console.log("HTML recibido - ruta:", req.body);
+  //console.log("HTML recibido - ruta:", req.body);
 
   try {
     if (!html || !id || !title) {
@@ -179,7 +179,7 @@ const createPDFId = async (req, res) => {
 const createXLSX = async (req, res) => {
   const { data } = req.body;
 
-  console.log("Data recibida - ruta:", req.body);
+  //console.log("Data recibida - ruta:", req.body);
 
   try {
     const xlsxPath = path.join(
